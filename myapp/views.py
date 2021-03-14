@@ -4,12 +4,12 @@ from django.shortcuts import render
 from django.template import RequestContext
 
 def applyfilter(filename, preset):
-	inputfile = '/home/arshdeep/django/imagepro/media/' + filename
+	inputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/media/' + filename
 
 	f=filename.split('.')
 	outputfilename = f[0] + '-out.jpg'
 
-	outputfile = '/home/arshdeep/django/imagepro/myapp/templates/static/output/' + outputfilename
+	outputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/myapp/templates/static/output' + outputfilename
 
 	im = Image.open(inputfile)
 	if preset=='gray':
