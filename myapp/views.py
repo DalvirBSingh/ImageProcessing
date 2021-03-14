@@ -9,7 +9,7 @@ def applyfilter(filename, preset):
 	f=filename.split('.')
 	outputfilename = f[0] + '-out.jpg'
 
-	outputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/myapp/templates/static/output' + outputfilename
+	outputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/myapp/templates/static/output/' + outputfilename
 
 	im = Image.open(inputfile)
 	if preset=='gray':
@@ -57,12 +57,12 @@ def home(request):
 		if form.is_valid():
                         preset=request.POST['preset']
 			outputfilename = handle_uploaded_file(request.FILES['myfilefield'],preset)
-			return render('process.html',{'outputfilename': outputfilename}, context)
+			return render(request, 'process.html',{'outputfilename': outputfilename}, context)
 	else:
 		form = UploadFileForm() 
 	return render(request, 'index.html',{'form': form}, context)
 
 def process(request):
-	return render(request,'process.html', {})
+	return render(request,'process.html', {}, {})
 
 
