@@ -1,8 +1,7 @@
-from django.shortcuts import render_to_response
-from django.template import RequestContext
 from myapp.forms import UploadFileForm
 from PIL import Image, ImageOps,ImageFilter
-
+from django.shortcuts import render
+from django.template import RequestContext
 
 def applyfilter(filename, preset):
 	inputfile = '/home/arshdeep/django/imagepro/media/' + filename
@@ -42,6 +41,7 @@ def applyfilter(filename, preset):
 	return outputfilename
 
 def handle_uploaded_file(f,preset):
+	context={}
 	uploadfilename='media/' + f.name
 	with open(uploadfilename, 'wb+') as destination:
 		for chunk in f.chunks():
@@ -51,17 +51,18 @@ def handle_uploaded_file(f,preset):
 	return outputfilename
 
 def home(request):
+	context={}
 	if request.method == 'POST':
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
                         preset=request.POST['preset']
 			outputfilename = handle_uploaded_file(request.FILES['myfilefield'],preset)
-			return render_to_response('process.html',{'outputfilename': outputfilename}, context_instance=RequestContext(request))
+			return render('process.html',{'outputfilename': outputfilename}, context)
 	else:
 		form = UploadFileForm() 
-	return render_to_response('index.html',{'form': form}, context_instance=RequestContext(request))
+	return render(request, 'index.html',{'form': form}, context)
 
 def process(request):
-	return render_to_response('process.html', {})
+	return render(request,'process.html', {})
 
 
