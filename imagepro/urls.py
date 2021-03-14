@@ -21,11 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 '''
+from django.conf.urls import include, url
+from myapp import views
 
-from django.conf.urls.defaults import *
+urlpatterns=[
+    url(r'^$', views.home),	
+    url(r'^process/$', views.process)
+]
 
-urlpatterns = patterns('',
-    url(r'^$', 'myapp.views.home'),	
-    url(r'^process/$', 'myapp.views.process'),
-)
 
