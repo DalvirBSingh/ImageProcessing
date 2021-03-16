@@ -2,6 +2,8 @@ from myapp.forms import UploadFileForm
 from PIL import Image, ImageOps,ImageFilter
 from django.shortcuts import render
 from django.template import RequestContext
+from s3upload import upload_file
+
 
 def applyfilter(filename, preset):
 	inputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/media/' + filename
@@ -38,7 +40,7 @@ def applyfilter(filename, preset):
 		im = im.convert("RGB")
 
 	im.save(outputfile)
-	return outputfilename
+	return (outputfilename, outputfile)
 
 def handle_uploaded_file(f,preset):
 	context={}
@@ -48,9 +50,13 @@ def handle_uploaded_file(f,preset):
 			destination.write(chunk)
 
 	outputfilename=applyfilter(f.name, preset)
-	return outputfilename
+	upload_file(outputfilename[1], "dalvir-iamges", "testig")
+	#upload_to_s3_bucket_path("dalvir-image-processing", "images/", outputfilename)
+
+	return outputfilename[0]
 
 def home(request):
+	print(request)
 	context={}
 	if request.method == 'POST':
 		form = UploadFileForm(request.POST, request.FILES)
