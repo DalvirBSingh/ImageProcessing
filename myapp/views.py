@@ -50,7 +50,9 @@ def handle_uploaded_file(f,preset):
 			destination.write(chunk)
 
 	outputfilename=applyfilter(f.name, preset)
-	upload_file(outputfilename[1], "dalvir-iamges", "testig")
+	print(outputfilename[0])
+	print(outputfilename[1])
+	upload_file(outputfilename[1], "dalvir-image-processing-bucket", outputfilename[0])
 	#upload_to_s3_bucket_path("dalvir-image-processing", "images/", outputfilename)
 
 	return outputfilename[0]
