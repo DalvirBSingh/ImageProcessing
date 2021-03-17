@@ -51,6 +51,7 @@ DATABASES = {
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     'ec2-3-83-160-226.compute-1.amazonaws.com',
+    'ec2-34-201-66-140.compute-1.amazonaws.com',
     '127.0.0.1'
 ]
 
