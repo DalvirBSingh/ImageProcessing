@@ -50,7 +50,8 @@ DATABASES = {
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
-    'ec2-3-83-160-226.compute-1.amazonaws.com'
+    'ec2-3-83-160-226.compute-1.amazonaws.com',
+    '127.0.0.1'
 ]
 
 # Local time zone for this installation. Choices can be found here:

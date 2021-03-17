@@ -2,16 +2,16 @@ from myapp.forms import UploadFileForm
 from PIL import Image, ImageOps,ImageFilter
 from django.shortcuts import render
 from django.template import RequestContext
+from django.conf import settings
 from s3upload import upload_file
 
-
 def applyfilter(filename, preset):
-	inputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/media/' + filename
+	inputfile = settings.ROOT_PATH + 'media/' + filename
 
 	f=filename.split('.')
 	outputfilename = f[0] + '-out.jpg'
 
-	outputfile = '/Users/ds070111/Documents/GitHub/ImageProcessing/myapp/templates/static/output/' + outputfilename
+	outputfile = settings.ROOT_PATH + 'myapp/templates/static/output/' + outputfilename
 
 	im = Image.open(inputfile)
 	if preset=='gray':
