@@ -19,3 +19,15 @@ Image Processing Cloud Application
 
 # Run python Dev Server
 - python manage.py runserver
+
+
+# Setup Web Server - Nnginx
+
+# Installationns
+- pip install gunicorn
+- brew install nginx
+- pip install psycopg2-binary
+
+# Running
+- sudo nginx
+
