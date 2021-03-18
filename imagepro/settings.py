@@ -24,11 +24,6 @@ SOFTWARE.
 
 # Django settings for imagepro project.
 import os.path
-import os
-from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # '/Users/ds070111/Documents/GitHub/ImageProcessing/imagepro'
 DIRNAME = os.path.abspath(os.path.dirname(__file__))
@@ -93,11 +88,12 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
