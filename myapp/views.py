@@ -63,7 +63,7 @@ def home(request):
 	if request.method == 'POST':
 		form = UploadFileForm(request.POST, request.FILES)
 		if form.is_valid():
-                        preset=request.POST['preset']
+            preset=request.POST['preset']
 			outputfilename = handle_uploaded_file(request.FILES['myfilefield'],preset)
 			return render(request, 'process.html',{'outputfilename': outputfilename}, context)
 	else:
