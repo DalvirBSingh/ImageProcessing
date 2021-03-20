@@ -90,7 +90,7 @@ MEDIA_URL = '/media/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATIC_ROOT = os.path.join(ROOT_PATH, 'static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -102,7 +102,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # '/Users/ds070111/Documents/GitHub/ImageProcessing/imagepro'
-    ROOT_PATH+ "/myapp/templates/static",
+    ROOT_PATH+ "myapp/templates/static",
 )
 
 # List of finder classes that know how to find static files in
