@@ -26,8 +26,6 @@ def upload_file(file_name, bucket, object_name=None):
         return False
     return True
 def delete_from_s3(bucketname,filename):
-    print("Bucket name:: ", bucketname)
-    print("File name:: ", filename)
 
     s3_client = boto3.client('s3')
     try:
