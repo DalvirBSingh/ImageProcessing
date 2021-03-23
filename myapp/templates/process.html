@@ -36,13 +36,17 @@
 <br>
 <br/>
 </td></tr>
+<tr>
+  <td>
+    <center>
+      <div class="btn-group">
+        <a href="/" ><button class ="button" >Home</button></a>
+        <a href="https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}" ><button class ="button">Download</button></a>
+        <a href="/delete_file?file={{outputfilename}}" ><button class ="button">Delete Image</button></a>
+      </div>
+    </center>
+  </td>
+</tr>
 </table>
-<center>
-  <div class="btn-group">
-    <a href="/" ><button class ="button" >Home</button></a>
-    <a href="https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}" ><button class ="button">Download</button></a>
-    <a href="/delete_file?file={{outputfilename}}" ><button class ="button">Delete Image</button></a>
-  </div>
-</center>
 </body>
 </html>
