@@ -3,15 +3,16 @@ from PIL import Image, ImageOps,ImageFilter
 from django.shortcuts import render
 from django.template import RequestContext
 from django.conf import settings
+import random
 from myapp.s3upload import upload_file, delete_from_s3
 
 def applyfilter(filename, preset):
     inputfile = settings.ROOT_PATH + 'media/' + filename
 
     f=filename.split('.')
-    outputfilename = f[0] + '-out.jpg'
+    outputfilename = f[0] + "-id-" + str(random.randint(1,10000000))+ '-output.jpg'
 
-    outputfile = settings.ROOT_PATH + 'myapp/templates/static/output/' + outputfilename
+    outputfile = settings.ROOT_PATH + 'myapp/templates/static/output/' + outputfilename 
 
     im = Image.open(inputfile)
     if preset=='gray':

@@ -32,31 +32,15 @@
 <center>
 <h4>Image filter has been successfully applied. </h4>
 <h4>File is uploaded to S3 bucket with the name - {{outputfilename}}</h4>
-
-</center>
-<br>
 <img src = 'https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}' width='800px' >
-
-
-<h3>Download Processed Image? </h3>
-  <button>
-    <a href="https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}">Download </a>
-  </button>
-
+<br>
 <br/>
-<br/>
-
-<h3>Delete uploaded image? </h3>
-<button>
-  <a href="/delete_file?file={{outputfilename}}">Delete Image</a>
-</button>
-<br/>
-<br/>
-<h3>Upload another Image? </h3>
-<button href="/">
-  <a href="/">Home</a>
-</button>
-
+  <div class="btn-group">
+    <a href="/"><button class="button">Home</button></a>
+    <a href="https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}"><button class="button">Download</button></a>
+    <a href="/delete_file?file={{outputfilename}}"><button class="button">Delete Image</button></a>
+  </div
+</center>
 </td></tr>
 </table>
     		
