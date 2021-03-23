@@ -4,14 +4,6 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-# Let's use Amazon S3
-# session = boto3.Session(profile_name='default')
-# s3 = session.resource('s3')
-
-# # Print out bucket names
-# for bucket in s3.buckets.all():
-#     print(bucket.name)
-
 def upload_file(file_name, bucket, object_name=None):
     """Upload a file to an S3 bucket
 

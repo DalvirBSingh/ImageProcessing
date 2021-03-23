@@ -50,15 +50,11 @@ def handle_uploaded_file(f,preset):
             destination.write(chunk)
 
     outputfilename=applyfilter(f.name, preset)
-    print(outputfilename[0])
-    print(outputfilename[1])
-    upload_file(outputfilename[1], "dalvir-iamges", outputfilename[0])
-    #upload_to_s3_bucket_path("dalvir-image-processing", "images/", outputfilename)
+    upload_file(outputfilename[1], "image-processed-bucket", outputfilename[0])
 
     return outputfilename[0]
 
 def home(request):
-    print(request)
     context={}
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -72,9 +68,10 @@ def home(request):
 
 def process(request):
     return render(request,'process.html', {}, {})
+
 def process_delete(request):
     filename = request.GET.get('file')
-    delete_from_s3("dalvir-iamges", filename)
+    delete_from_s3("image-processed-bucket", filename)
     context={}
     form = UploadFileForm() 
     # Deleted so go back to main page
@@ -82,8 +79,7 @@ def process_delete(request):
     
 def process_download(request):
     filename = request.GET.get('file')
-    download_from_s3("dalvir-iamges", filename)
+    download_from_s3("image-processed-bucket", filename)
     context={}
     form = UploadFileForm() 
-    # Deleted so go back to main page
     return render(request, 'index.html',{'form': form}, context)
