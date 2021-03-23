@@ -1061,12 +1061,12 @@ textarea {
   line-height: 20px;
 }
 
-input,
+/* input,
 button,
 select,
 textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+} */
 
 label {
   display: block;
@@ -1178,7 +1178,7 @@ input[type="file"],
 input[type="image"],
 input[type="submit"],
 input[type="reset"],
-input[type="button"],
+/* input[type="button"], */
 input[type="radio"],
 input[type="checkbox"] {
   width: auto;
@@ -3187,13 +3187,13 @@ table th[class*="span"],
   filter: alpha(opacity=40);
 }
 
-button.close {
+/* button.close {
   padding: 0;
   cursor: pointer;
   background: transparent;
   border: 0;
   -webkit-appearance: none;
-}
+} */
 
 .btn {
   display: inline-block;
@@ -3344,9 +3344,9 @@ button.close {
 
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
-input[type="button"].btn-block {
+/* input[type="button"].btn-block {
   width: 100%;
-}
+} */
 
 .btn-primary.active,
 .btn-warning.active,
@@ -3555,23 +3555,23 @@ input[type="button"].btn-block {
   background-color: #080808 \9;
 }
 
-button.btn,
+/* button.btn,
 input[type="submit"].btn {
   *padding-top: 3px;
   *padding-bottom: 3px;
-}
-
+} */
+/* 
 button.btn::-moz-focus-inner,
 input[type="submit"].btn::-moz-focus-inner {
   padding: 0;
-  border: 0;
-}
+  border: 0; */
+/* } */
 
-button.btn.btn-large,
+/* button.btn.btn-large,
 input[type="submit"].btn.btn-large {
   *padding-top: 7px;
   *padding-bottom: 7px;
-}
+} */
 
 button.btn.btn-small,
 input[type="submit"].btn.btn-small {
