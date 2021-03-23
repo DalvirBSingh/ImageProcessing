@@ -2,10 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Image Processing App</title>
-<link href="/static/styles/demo_style.css" rel="stylesheet" type="text/css">
-
-<link href="/static/styles/smart_wizard.css" rel="stylesheet" type="text/css">
-<link href="/static/styles/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="/static/css/demo_style.css" rel="stylesheet" type="text/css">
+<link href="/static/css/smart_wizard.css" rel="stylesheet" type="text/css">
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.smartWizard.js"></script>
 
@@ -33,16 +32,15 @@
 <h4>Image filter has been successfully applied. </h4>
 <h4>File is uploaded to S3 bucket with the name - {{outputfilename}}</h4>
 <img src = 'https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}' width='800px' >
+</center>
 <br>
 <br/>
-  <div class="btn-group">
-    <a href="/"><button class="button">Home</button></a>
-    <a href="https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}"><button class="button">Download</button></a>
-    <a href="/delete_file?file={{outputfilename}}"><button class="button">Delete Image</button></a>
-  </div
-</center>
 </td></tr>
 </table>
-    		
+<div class="mybtn-group">
+  <a class ="mybtn" href="/"><button>Home</button></a>
+  <a class ="mybtn" href="https://image-processed-bucket.s3.amazonaws.com/{{outputfilename}}"><button>Download</button></a>
+  <a class ="mybtn" href="/delete_file?file={{outputfilename}}"><button>Delete Image</button></a>
+</div>
 </body>
 </html>
