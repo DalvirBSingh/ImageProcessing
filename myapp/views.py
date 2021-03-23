@@ -35,7 +35,7 @@ def applyfilter(filename, preset):
         sepia = []
         r, g, b = (239, 224, 185)
         for i in range(255):
-            sepia.extend((r*i/255, g*i/255, b*i/255))
+            sepia.extend((r*i//255, g*i//255, b*i//255))
         im = im.convert("L")
         im.putpalette(sepia)
         im = im.convert("RGB")
