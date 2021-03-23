@@ -43,7 +43,7 @@
   z-index:88; 
   -webkit-border-radius: 5px;
   -moz-border-radius  : 5px;
-  width:785px;
+  width:790px;
   clear:both;
 }
 
