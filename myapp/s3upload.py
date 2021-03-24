@@ -4,14 +4,6 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-# Let's use Amazon S3
-# session = boto3.Session(profile_name='default')
-# s3 = session.resource('s3')
-
-# # Print out bucket names
-# for bucket in s3.buckets.all():
-#     print(bucket.name)
-
 def upload_file(file_name, bucket, object_name=None):
     """Upload a file to an S3 bucket
 
@@ -28,7 +20,16 @@ def upload_file(file_name, bucket, object_name=None):
     # Upload the file
     s3_client = boto3.client('s3')
     try:
-        response = s3_client.upload_file(file_name, bucket, object_name)
+        response = s3_client.upload_file(file_name, bucket, object_name, ExtraArgs={'ACL':'public-read'})
+    except ClientError as e:
+        logging.error(e)
+        return False
+    return True
+def delete_from_s3(bucketname,filename):
+
+    s3_client = boto3.client('s3')
+    try:
+        response = s3_client.delete_object(Bucket=bucketname, Key=filename)
     except ClientError as e:
         logging.error(e)
         return False
@@ -67,7 +68,4 @@ def upload_file(file_name, bucket, object_name=None):
 # 	totalsize = totalsize/1000000.0
 # 	return userfiles,totalsize
 
-# def delete_from_s3(bucketname, username,filename):
-# 	mybucket = conn.get_bucket(bucketname)
-# 	mybucket.delete_key(username+'/media/'+filename)
 

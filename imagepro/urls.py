@@ -28,7 +28,8 @@ from django.conf import settings
 
 urlpatterns=[
     url(r'^$', views.home),	
-    url(r'^process/$', views.process)
+    url(r'^process/$', views.process),
+    url(r'^delete_file/$', views.process_delete)
 ]+  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
